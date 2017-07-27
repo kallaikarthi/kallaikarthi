@@ -10,9 +10,13 @@ from flask import make_response
 app = Flask(__name__)
 
 
-# @app.route('/')
-@app.route('/webhook', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return 'welcome back'
+
+
+@app.route('/webhook', methods=['GET', 'POST'])
+def webhook():
     req = request.get_json(silent=True, force=True)
     print("Request:")
     print(json.dumps(req, indent=4))
